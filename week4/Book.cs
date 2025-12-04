@@ -1,5 +1,27 @@
-namespace Week4.Week4
+public class Student
 {
-    // Record to represent a book with title, author, and price
-    public record Book(string title, string author, double price);
+    private int age;
+    private string name;
+
+    public string Name
+    {
+        get { return name; }
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Name cannot be empty.");
+            name = value;
+        }
+    }
+
+    public int Age
+    {
+        get { return age; }
+        set
+        {
+            if (value < 3 || value > 120)
+                throw new ArgumentOutOfRangeException("Invalid age.");
+            age = value;
+        }
+    }
 }
